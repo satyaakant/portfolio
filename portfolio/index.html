@@ -10,8 +10,7 @@
 
  
   <link rel="stylesheet" href="./assets/css/style.css">
-
-
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -700,7 +699,7 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-              <a href="#">
+              <a href="https://www.notion.so/DATA-TYPES-AND-DATA-STRUCTURES-b601f43203ed402cb10eac012eb2fb19">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
@@ -709,17 +708,17 @@
                 <div class="blog-content">
 
                   <div class="blog-meta">
-                    <p class="blog-category">Design</p>
+                    <p class="blog-category">Tech</p>
 
                     <span class="dot"></span>
 
                     <time datetime="2022-02-23">Fab 23, 2022</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+                  <h3 class="h3 blog-item-title">Data type and Data structures</h3>
 
                   <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                    Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
                   </p>
 
                 </div>
@@ -748,38 +747,31 @@
         <header>
           <h2 class="h2 article-title">Contact</h2>
         </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
         <section class="contact-form">
-
+      
           <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
+      
+          <form id="contactForm" class="form" data-form>
+      
             <div class="input-wrapper">
+              <input type="hidden" name="access_key" value="3b31ec38-086a-466b-a36b-05d4e94419b2">
+      
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
+      
               <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
-
+      
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
+      
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
-
+      
           </form>
-
+      
         </section>
-
+      
       </article>
 
     </div>
@@ -795,10 +787,57 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
-
+  <script>
+    // Enable the form button when inputs are filled
+    document.querySelectorAll("[data-form-input]").forEach(input => {
+      input.addEventListener("input", () => {
+        const allFilled = [...document.querySelectorAll("[data-form-input]")].every(i => i.value.trim() !== "");
+        document.querySelector("[data-form-btn]").disabled = !allFilled;
+      });
+    });
+    
+    // Handle form submission
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+    
+      const formData = new FormData(this);
+    
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Message Sent",
+            text: "Thank you! Your message has been successfully sent.",
+            confirmButtonText: "OK"
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Something went wrong. Please try again.",
+            confirmButtonText: "OK"
+          });
+        }
+      })
+      .catch(error => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Network error. Please check your connection and try again.",
+          confirmButtonText: "OK"
+        });
+      });
+    });
+    </script>
   <!--
     - ionicon link
   -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
