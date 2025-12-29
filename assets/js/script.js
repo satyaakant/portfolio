@@ -1,6 +1,43 @@
 'use strict';
 
 
+const themeToggleBtn = document.querySelector("[data-theme-toggle]");
+
+const applyTheme = function (theme) {
+  document.body.setAttribute("data-theme", theme);
+
+  if (!themeToggleBtn) return;
+  const icon = themeToggleBtn.querySelector("ion-icon");
+  if (!icon) return;
+
+  if (theme === "light") {
+    icon.setAttribute("name", "moon-outline");
+    themeToggleBtn.setAttribute("aria-label", "Switch to dark mode");
+  } else {
+    icon.setAttribute("name", "sunny-outline");
+    themeToggleBtn.setAttribute("aria-label", "Switch to light mode");
+  }
+}
+
+const getInitialTheme = function () {
+  const saved = localStorage.getItem("theme");
+  if (saved === "light" || saved === "dark") return saved;
+  const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+  return prefersLight ? "light" : "dark";
+}
+
+applyTheme(getInitialTheme());
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const current = document.body.getAttribute("data-theme") || "dark";
+    const next = current === "light" ? "dark" : "light";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+  });
+}
+
+
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
