@@ -1,38 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ContactForm.module.css";
 import { ScrollReveal } from "./ScrollReveal";
+import Swal from "sweetalert2";
 
 export default function ContactForm() {
-    const [result, setResult] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({
+        fullname: "",
+        email: "",
+        message: ""
+    });
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    useEffect(() => {
+        const isValid = formData.fullname.trim() !== "" &&
+            formData.email.trim() !== "" &&
+            formData.message.trim() !== "";
+        setIsFormValid(isValid);
+    }, [formData]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
-        setResult("Sending....");
 
-        const formData = new FormData(event.currentTarget);
-        formData.append("access_key", "3b31ec38-086a-466b-a36b-05d4e94419b2");
+        const data = new FormData(event.currentTarget);
+        data.append("access_key", "3b31ec38-086a-466b-a36b-05d4e94419b2");
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                body: formData
+                body: data
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
-            if (data.success) {
-                setResult("Form Submitted Successfully");
+            if (result.success) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Message Sent",
+                    text: "Thank you! Your message has been successfully sent.",
+                    confirmButtonText: "OK"
+                });
+                setFormData({ fullname: "", email: "", message: "" });
                 event.currentTarget.reset();
             } else {
-                console.log("Error", data);
-                setResult(data.message);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Something went wrong. Please try again.",
+                    confirmButtonText: "OK"
+                });
             }
         } catch (error) {
-            setResult("Something went wrong. Please try again.");
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Network error. Please check your connection and try again.",
+                confirmButtonText: "OK"
+            });
             console.error(error);
         } finally {
             setIsSubmitting(false);
@@ -49,16 +81,41 @@ export default function ContactForm() {
                 <ScrollReveal delay={0.2}>
                     <form onSubmit={onSubmit} className={styles.form}>
                         <div className={styles.inputGroup}>
-                            <input type="text" name="name" placeholder="Your Name" required className={styles.input} />
-                            <input type="email" name="email" placeholder="Your Email" required className={styles.input} />
+                            <input
+                                type="text"
+                                name="fullname"
+                                placeholder="Full name"
+                                required
+                                className={styles.input}
+                                value={formData.fullname}
+                                onChange={handleInputChange}
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email address"
+                                required
+                                className={styles.input}
+                                value={formData.email}
+                                onChange={handleInputChange}
+                            />
                         </div>
-                        <textarea name="message" placeholder="Your Message" required className={styles.textarea}></textarea>
+                        <textarea
+                            name="message"
+                            placeholder="Your Message"
+                            required
+                            className={styles.textarea}
+                            value={formData.message}
+                            onChange={handleInputChange}
+                        ></textarea>
 
-                        <button type="submit" disabled={isSubmitting} className={styles.button}>
+                        <button
+                            type="submit"
+                            disabled={!isFormValid || isSubmitting}
+                            className={styles.button}
+                        >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
-
-                        {result && <p className={styles.result}>{result}</p>}
                     </form>
                 </ScrollReveal>
 
