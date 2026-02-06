@@ -1,0 +1,73 @@
+.section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px) rotate(1deg);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 30px -10px rgba(0, 243, 255, 0.2);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    font-size: 0.8rem;
+    color: var(--accent-purple);
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--accent-purple);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+}

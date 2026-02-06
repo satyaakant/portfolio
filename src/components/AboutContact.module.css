@@ -1,0 +1,105 @@
+.section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.aboutSection {
+    background-color: var(--bg-primary);
+}
+
+.contactSection {
+    background-color: var(--bg-secondary);
+}
+
+.contentWrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.imageStack {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .aboutGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .imageStack {
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+}
+
+.text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    text-align: justify;
+}
+
+.skillsTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.skillsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.skillTag {
+    padding: 0.5rem 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    transition: all 0.3s ease;
+}
+
+.skillTag:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.contactCard {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+}
+
+.contactEmail {
+    font-size: 1.5rem;
+    color: var(--accent-purple);
+    margin: var(--spacing-md) 0;
+    display: block;
+    font-weight: 600;
+}
+
+.socialSelect {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
