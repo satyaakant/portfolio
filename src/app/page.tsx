@@ -7,7 +7,6 @@ import Projects from "@/components/Projects";
 import { About } from "@/components/AboutContact";
 import Philosophy from "@/components/Philosophy";
 import Workflow from "@/components/Workflow";
-import Stats from "@/components/Stats";
 import styles from "@/components/FunkyStyles.module.css";
 import CustomCursor from "@/components/CustomCursor";
 
@@ -35,8 +34,6 @@ export default function Home() {
       <Workflow />
 
       <Testimonials />
-
-      <Stats />
 
       <div className="container" style={{ textAlign: 'center', padding: '4rem 0' }}>
         <h2 className={`h2 text-gradient ${styles.glitch}`} data-text="SELECTED WORKS">SELECTED WORKS</h2>

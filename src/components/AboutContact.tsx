@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import styles from './AboutContact.module.css';
+import { techLinks } from '@/lib/constants';
 
 const skills = [
     "Next.js", "React", "TypeScript", "Node.js",
     "HTML5", "CSS3", "Tailwind (Expert)", "Vanilla CSS",
-    "Git", "REST APIs", "Django"
+    "Git", "REST APIs", "Django", "C++", "AWS EC2"
 ];
 
 export const About = () => {
@@ -32,9 +33,23 @@ export const About = () => {
 
                         <h3 className={styles.skillsTitle}>The Arsenal</h3>
                         <div className={styles.skillsGrid}>
-                            {skills.map((skill) => (
-                                <span key={skill} className={styles.skillTag}>{skill}</span>
-                            ))}
+                            {skills.map((skill) => {
+                                const link = techLinks[skill];
+                                return link ? (
+                                    <a
+                                        key={skill}
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.skillTag}
+                                        title={`Learn more about ${skill}`}
+                                    >
+                                        {skill}
+                                    </a>
+                                ) : (
+                                    <span key={skill} className={styles.skillTag}>{skill}</span>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>            </div>

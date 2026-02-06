@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from './ScrollReveal';
 import styles from './Resume.module.css';
+import { techLinks } from '@/lib/constants';
 
 const education = [
     {
@@ -105,9 +106,23 @@ const Resume = () => {
                                         <p className={styles.description}>{item.description}</p>
 
                                         <div className={styles.techTags}>
-                                            {item.tech.map(t => (
-                                                <span key={t} className={styles.tag}>{t}</span>
-                                            ))}
+                                            {item.tech.map(t => {
+                                                const link = techLinks[t];
+                                                return link ? (
+                                                    <a
+                                                        key={t}
+                                                        href={link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className={styles.tag}
+                                                        title={`Learn more about ${t}`}
+                                                    >
+                                                        {t}
+                                                    </a>
+                                                ) : (
+                                                    <span key={t} className={styles.tag}>{t}</span>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 </ScrollReveal>

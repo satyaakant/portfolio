@@ -28,9 +28,10 @@ export default function ContactForm() {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const form = event.currentTarget;
         setIsSubmitting(true);
 
-        const data = new FormData(event.currentTarget);
+        const data = new FormData(form);
         data.append("access_key", "3b31ec38-086a-466b-a36b-05d4e94419b2");
 
         try {
@@ -49,7 +50,7 @@ export default function ContactForm() {
                     confirmButtonText: "OK"
                 });
                 setFormData({ fullname: "", email: "", message: "" });
-                event.currentTarget.reset();
+                form.reset();
             } else {
                 Swal.fire({
                     icon: "error",

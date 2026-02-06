@@ -111,6 +111,17 @@
     text-transform: uppercase;
 }
 
+.marqueeItem a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.marqueeItem a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
+}
+
 .marqueeItem span {
     color: var(--accent-cyan);
 }

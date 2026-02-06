@@ -120,6 +120,14 @@
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-family: var(--font-mono);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: var(--accent-purple);
+    color: white;
+    box-shadow: 0 0 10px var(--accent-purple);
 }
 
 @media (max-width: 768px) {
