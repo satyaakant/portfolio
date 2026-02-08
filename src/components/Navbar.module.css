@@ -69,8 +69,87 @@
 }
 
 @media (max-width: 768px) {
-    .navList {
-        display: none;
-        /* Mobile menu could be added later for specialized skill */
+    .menuToggle {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: 1000;
     }
+
+    .hamburger {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--theme-accent-1);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: background 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: var(--theme-accent-1);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        top: 8px;
+    }
+
+    .toggleActive .hamburger {
+        background: transparent;
+    }
+
+    .toggleActive .hamburger::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .toggleActive .hamburger::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(20px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .navActive {
+        right: 0;
+    }
+
+    .navList {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .navLink {
+        font-size: 1.5rem;
+    }
+}
+
+.menuToggle {
+    display: none;
 }

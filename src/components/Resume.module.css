@@ -137,5 +137,42 @@
 @media (max-width: 1024px) {
     .columns {
         grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timelineItem {
+        margin-bottom: 2.5rem;
+    }
+
+    .timelineItem::before {
+        left: calc(-1.5rem - 6px);
+    }
+
+    .timelineItem::after {
+        left: calc(-1.5rem - 4px);
+    }
+
+    .itemTitle {
+        font-size: 1.1rem;
+    }
+
+    .headerRow {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .year {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
     }
 }

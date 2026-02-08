@@ -195,4 +195,31 @@
     .sliderBtn {
         display: none;
     }
+
+    .sliderContainer {
+        gap: 0;
+    }
+
+    .projectTitle {
+        font-size: 1.4rem;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .projectId {
+        font-size: 0.5rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .sectionTitle {
+        margin-bottom: 2.5rem;
+    }
+
+    .cardFooter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
 }
