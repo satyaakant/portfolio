@@ -10,44 +10,55 @@ const Hero = () => {
             <div className={styles.gridBackground}></div>
 
             <div className={styles.heroContent}>
-                <motion.p
-                    className={styles.greeting}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
+                <motion.div
+                    className={styles.statusLine}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
                 >
-                    Hello, I&apos;m
-                </motion.p>
+                    <span className={styles.statusDot}></span>
+                    <span className={styles.statusText}>STATUS: INITIALIZING_ARCHITECT_CORE_V1.0</span>
+                </motion.div>
 
                 <motion.h1
                     className={`${styles.name} text-gradient`}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
+                    initial={{ opacity: 0, skewX: 10 }}
+                    animate={{ opacity: 1, skewX: 0 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    Satya Kant Mishra
+                    SATYA KANT MISHRA
                 </motion.h1>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.5 }}
-                >
-                    <p className={styles.title}>Co-founder of SMTech</p>
-                    <p className={styles.subtitle}>Web Developer & Tech Enthusiast</p>
-                </motion.div>
+                <div className={styles.metaInfo}>
+                    <motion.p
+                        className={styles.title}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        &gt; CLASSIFICATION: FULL_STACK_ARCHITECT
+                    </motion.p>
+                    <motion.p
+                        className={styles.subtitle}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.6 }}
+                    >
+                        &gt; LOCATION: NEW_DELHI // REMOTE_ACCESS_GRANTED
+                    </motion.p>
+                </div>
 
                 <motion.div
                     className={styles.ctaGroup}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                 >
                     <Link href="#projects" className={styles.primaryBtn}>
-                        View Projects
+                        [ ACCESS_WORKS ]
                     </Link>
                     <Link href="#contact" className={styles.secondaryBtn}>
-                        Contact Me
+                        [ ESTABLISH_LINK ]
                     </Link>
                 </motion.div>
             </div>

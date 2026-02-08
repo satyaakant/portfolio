@@ -5,6 +5,25 @@
 
 .aboutSection {
     background-color: var(--bg-primary);
+    border-bottom: 2px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.terminalHeader {
+    margin-bottom: 4rem;
+    border-left: 2px solid var(--accent-cyan);
+    padding-left: 2rem;
+}
+
+.sectorId {
+    display: block;
+    font-family: var(--font-mono);
+    color: var(--accent-cyan);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
 }
 
 .contactSection {
@@ -43,17 +62,23 @@
 
 .text {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.9;
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
     text-align: justify;
 }
 
 .skillsTitle {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
     margin: var(--spacing-lg) 0 var(--spacing-md);
-    color: var(--text-primary);
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+}
+
+.skillsTitle::before {
+    content: '> ';
+    opacity: 0.5;
 }
 
 .skillsGrid {

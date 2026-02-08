@@ -1,0 +1,58 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #050505;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+}
+
+.content {
+    width: 400px;
+    max-width: 80vw;
+}
+
+.glitchTitle {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 2px 0 var(--accent-purple), -2px 0 var(--accent-cyan);
+}
+
+.statusRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.progressTrack {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.metaRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    opacity: 0.5;
+    letter-spacing: 1px;
+}

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import HUD from "@/components/HUD";
+import Preloader from "@/components/Preloader";
+import MiniMap from "@/components/MiniMap";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,6 +33,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased`}
       >
+        <Preloader />
+        <HUD />
+        <MiniMap />
         <Navbar />
         {children}
       </body>

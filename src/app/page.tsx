@@ -20,7 +20,9 @@ export default function Home() {
         <div className={styles.shape} style={{ width: 150, height: 150, bottom: '20%', left: '10%', animationDelay: '4s' }}></div>
       </div>
 
-      <Hero />
+      <section id="hero">
+        <Hero />
+      </section>
       <div style={{ transform: 'rotate(-2deg)', margin: '2rem 0', background: '#000', borderTop: '2px solid var(--accent-cyan)', borderBottom: '2px solid var(--accent-purple)' }}>
         <TechMarquee />
       </div>
@@ -29,16 +31,24 @@ export default function Home() {
         <About />
       </div>
 
-      <Philosophy />
+      <section id="philosophy">
+        <Philosophy />
+      </section>
 
-      <Workflow />
+      <section id="workflow">
+        <Workflow />
+      </section>
 
-      <Testimonials />
+      <section id="testimonials">
+        <Testimonials />
+      </section>
 
       <div className="container" style={{ textAlign: 'center', padding: '4rem 0' }}>
         <h2 className={`h2 text-gradient ${styles.glitch}`} data-text="SELECTED WORKS">SELECTED WORKS</h2>
       </div>
-      <Projects />
+      <section id="projects">
+        <Projects />
+      </section>
     </main>
   );
 }

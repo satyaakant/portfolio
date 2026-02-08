@@ -24,7 +24,12 @@ const CustomCursor = () => {
             className={`${styles.cursor} ${isPointer ? styles.pointer : ''}`}
             style={{ left: `${position.x}px`, top: `${position.y}px` }}
         >
-            <div className={styles.dot}></div>
+            <div className={styles.crosshair}>
+                <div className={styles.ring1}></div>
+                <div className={styles.ring2}></div>
+                <div className={styles.dot}></div>
+            </div>
+            {isPointer && <div className={styles.label}>[ INTERACT ]</div>}
         </div>
     );
 };

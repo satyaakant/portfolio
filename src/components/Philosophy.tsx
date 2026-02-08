@@ -8,10 +8,13 @@ const Philosophy = () => {
         <section className={styles.philosophySection}>
             <div className="container">
                 <ScrollReveal width="100%">
-                    <h2 className={styles.manifestoTitle}>
-                        I don't just write code. <br />
-                        <span className={styles.highlight}>I craft experiences.</span>
-                    </h2>
+                    <div className={styles.terminalHeader}>
+                        <span className={styles.sectorId}>SECTOR: 02 // ARCHITECT_MANIFESTO</span>
+                        <h2 className={styles.manifestoTitle}>
+                            I don't just write code. <br />
+                            <span className={styles.highlight}>I craft experiences.</span>
+                        </h2>
+                    </div>
                 </ScrollReveal>
 
                 <div className={styles.principalsGrid}>

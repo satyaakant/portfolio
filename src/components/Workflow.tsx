@@ -15,7 +15,10 @@ const Workflow = () => {
         <section className={styles.workflowSection}>
             <div className="container">
                 <ScrollReveal>
-                    <h2 className={`h2 text-gradient ${styles.sectionHeader}`}>The Process</h2>
+                    <div className={styles.terminalHeader}>
+                        <span className={styles.sectorId}>PROCEDURE: OPTIMIZED_EXECUTION_FLOW</span>
+                        <h2 className={`h2 text-gradient ${styles.sectionHeader}`}>The Process</h2>
+                    </div>
                 </ScrollReveal>
 
                 <div className={styles.workflowGrid}>

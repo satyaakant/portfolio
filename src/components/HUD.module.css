@@ -1,0 +1,116 @@
+.hudContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+    padding: var(--spacing-md);
+    font-family: var(--font-mono);
+    color: var(--accent-cyan);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.topHud {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: linear-gradient(to bottom, rgba(0, 243, 255, 0.05), transparent);
+}
+
+.label {
+    opacity: 0.5;
+    margin-right: 0.5rem;
+}
+
+.value {
+    font-weight: 700;
+}
+
+.leftHud {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.verticalText {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    padding: 1rem 0;
+    border-left: 1px solid var(--accent-cyan);
+    opacity: 0.7;
+}
+
+.bottomHud {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 200px;
+}
+
+.progressLabel {
+    margin-bottom: 0.5rem;
+    text-align: right;
+    opacity: 0.6;
+}
+
+.progressBar {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--accent-cyan);
+    transform-origin: left;
+}
+
+/* Decorative Brackets */
+.bracket {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--accent-cyan);
+    opacity: 0.3;
+}
+
+.topLeft {
+    top: 2rem;
+    left: 2rem;
+    border-right: none;
+    border-bottom: none;
+}
+
+.topRight {
+    top: 2rem;
+    right: 2rem;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottomLeft {
+    bottom: 2rem;
+    left: 2rem;
+    border-right: none;
+    border-top: none;
+}
+
+.bottomRight {
+    bottom: 2rem;
+    right: 2rem;
+    border-left: none;
+    border-top: none;
+}
+
+@media (max-width: 768px) {
+
+    .leftHud,
+    .bottomHud {
+        display: none;
+    }
+}
