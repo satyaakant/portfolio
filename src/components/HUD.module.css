@@ -116,6 +116,7 @@
 
 @media (max-width: 768px) {
 
+    .topHud,
     .leftHud,
     .bottomHud {
         display: none;

@@ -23,10 +23,12 @@
     opacity: 0.6;
 }
 
-.title {
-    font-size: 3rem;
+.manifestoTitle {
+    font-size: clamp(2rem, 8vw, 3.5rem);
     font-weight: 900;
+    line-height: 1.1;
     text-transform: uppercase;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
 }
 

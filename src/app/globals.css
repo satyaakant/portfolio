@@ -73,14 +73,38 @@ button {
   padding: 0 var(--spacing-lg);
 }
 
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 @media (max-width: 768px) {
   :root {
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 3rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 2.5rem;
   }
 
   .container {
     padding: 0 var(--spacing-md);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
   }
 }
 

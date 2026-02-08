@@ -14,7 +14,7 @@ export const About = () => {
             <div className="container">
                 <div className={styles.terminalHeader}>
                     <span className={styles.sectorId}>SECTOR: 01 // ARCHITECT_DOSSIER</span>
-                    <h2 className="h2 text-gradient" style={{ textAlign: 'left', marginBottom: '1.5rem', fontSize: '3rem', fontWeight: '800', textTransform: 'uppercase' }}>Who Am I?</h2>
+                    <h2 className={`h2 text-gradient ${styles.sectionTitle}`}>Who Am I?</h2>
                 </div>
 
                 <div className={styles.aboutGrid}>
@@ -72,7 +72,7 @@ export const Contact = () => {
             <div className="container">
                 <div className={styles.terminalHeader}>
                     <span className={styles.sectorId}>LINK_PROTOCOL: ESTABLISHING_COMMUNICATION</span>
-                    <h2 className="h2 text-gradient" style={{ textAlign: 'left', marginBottom: '1.5rem', fontSize: '2.5rem', fontWeight: '700' }}>Get In Touch</h2>
+                    <h2 className={`h2 text-gradient ${styles.sectionTitle}`}>Get In Touch</h2>
                 </div>
 
                 <div className={styles.contentWrapper}>
