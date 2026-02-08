@@ -6,19 +6,24 @@ import { ReactNode } from "react";
 interface DraggableCardProps {
     children: ReactNode;
     className?: string;
-    initial?: { x: number; y: number; rotate: number };
+    initial?: any;
+    animate?: any;
+    transition?: any;
+    style?: React.CSSProperties;
 }
 
-export const DraggableCard = ({ children, className, initial = { x: 0, y: 0, rotate: 0 } }: DraggableCardProps) => {
+export const DraggableCard = ({ children, className, initial, animate, transition, style }: DraggableCardProps) => {
     return (
         <motion.div
             drag
-            dragConstraints={{ left: -500, right: 500, top: -500, bottom: 500 }}
-            whileHover={{ scale: 1.1, cursor: "grab", zIndex: 50 }}
+            dragConstraints={{ left: -1000, right: 1000, top: -500, bottom: 500 }}
+            whileHover={{ scale: 1.1, cursor: "grab", zIndex: 100 }}
             whileTap={{ scale: 0.95, cursor: "grabbing" }}
             initial={initial}
+            animate={animate}
+            transition={transition}
             className={className}
-            style={{ position: 'relative' }} // Changed from absolute to allow mixed layouts, or handled by parent
+            style={{ position: 'absolute', ...style }}
         >
             {children}
         </motion.div>

@@ -20,14 +20,20 @@ export const About = () => {
                 <div className={styles.aboutGrid}>
 
                     <div className={styles.imageStack}>
-                        {/* Funky image layout */}
-                        <div style={{ position: 'absolute', top: 0, left: 0, width: '80%', height: '80%', background: 'var(--accent-purple)', transform: 'rotate(-5deg)', zIndex: 0 }}></div>
-                        <img src="/assets/images/my-avatar.png" alt="Satya" style={{ position: 'absolute', top: '10px', left: '10px', width: '80%', height: '80%', objectFit: 'cover', border: '2px solid white', zIndex: 1, filter: 'grayscale(100%)' }} />
+                        <div className={styles.neuralGrid}></div>
+                        <div className={styles.scanline}></div>
+                        <img
+                            src="/assets/images/my-avatar.png"
+                            alt="Satya"
+                            className={styles.avatar}
+                        />
+                        <div className={styles.cornerMarker + " " + styles.tl}></div>
+                        <div className={styles.cornerMarker + " " + styles.br}></div>
                     </div>
 
                     <div>
                         <p className={styles.text}>
-                            I’m <span style={{ color: 'var(--accent-cyan)', fontWeight: 'bold' }}>Satya Kant Mishra</span>, a Co-Founder & Full Stack Developer who lives for the code.
+                            I’m <span className={styles.highlightName}>Satya Kant Mishra</span>, a Co-Founder & Full Stack Developer who lives for the code.
                             I don't just build websites; I build digital experiences.
                         </p>
                         <p className={styles.text}>

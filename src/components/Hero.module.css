@@ -6,7 +6,7 @@
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at center, rgba(0, 243, 255, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at center, var(--theme-glow) 0%, transparent 70%);
 }
 
 .heroContent {
@@ -23,7 +23,7 @@
     gap: 0.8rem;
     margin-bottom: 2.2rem;
     font-family: var(--font-mono);
-    color: var(--accent-cyan);
+    color: var(--theme-accent-1);
     font-size: 0.75rem;
     letter-spacing: 2px;
 }
@@ -31,9 +31,9 @@
 .statusDot {
     width: 8px;
     height: 8px;
-    background: var(--accent-cyan);
+    background: var(--theme-accent-1);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-cyan);
+    box-shadow: 0 0 10px var(--theme-accent-1);
     animation: pulse 1.5s infinite;
 }
 
@@ -85,27 +85,27 @@
 }
 
 .primaryBtn {
-    background: var(--accent-cyan);
+    background: var(--theme-accent-1);
     color: var(--bg-primary);
     border: none;
-    box-shadow: 6px 6px 0 var(--accent-purple);
+    box-shadow: 6px 6px 0 var(--theme-accent-2);
 }
 
 .primaryBtn:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 12px 12px 0 var(--accent-purple);
+    box-shadow: 12px 12px 0 var(--theme-accent-2);
 }
 
 .secondaryBtn {
     background: transparent;
-    border: 1px solid var(--accent-purple);
-    color: var(--accent-purple);
+    border: 1px solid var(--theme-accent-2);
+    color: var(--theme-accent-2);
 }
 
 .secondaryBtn:hover {
-    background: rgba(188, 19, 254, 0.15);
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
+    background: var(--theme-glow);
+    border-color: var(--theme-accent-1);
+    color: var(--theme-accent-1);
 }
 
 @keyframes pulse {

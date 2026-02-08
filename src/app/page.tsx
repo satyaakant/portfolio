@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import { Testimonials } from "@/components/Testimonials";
 import Projects from "@/components/Projects";
-import { About } from "@/components/AboutContact";
+import { About, Contact } from "@/components/AboutContact";
 import Philosophy from "@/components/Philosophy";
 import Workflow from "@/components/Workflow";
 import styles from "@/components/FunkyStyles.module.css";
@@ -23,7 +23,7 @@ export default function Home() {
       <section id="hero">
         <Hero />
       </section>
-      <div style={{ transform: 'rotate(-2deg)', margin: '2rem 0', background: '#000', borderTop: '2px solid var(--accent-cyan)', borderBottom: '2px solid var(--accent-purple)' }}>
+      <div style={{ transform: 'rotate(-2deg)', margin: '2rem 0', background: '#000', borderTop: '2px solid var(--theme-accent-1)', borderBottom: '2px solid var(--theme-accent-2)' }}>
         <TechMarquee />
       </div>
 

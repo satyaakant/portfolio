@@ -1,65 +1,100 @@
 .projectsSection {
     padding: var(--spacing-xl) 0;
-    background-color: var(--bg-secondary);
+    background: transparent;
     position: relative;
+    overflow: hidden;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    /* Bigger cards */
-    gap: 3rem;
-    padding: 2rem;
+.sectionTitle {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.sliderContainer {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cardWrapper {
+    width: 100%;
+    perspective: 1000px;
+}
+
+.sliderBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--theme-accent-1);
+    color: var(--theme-accent-1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.sliderBtn:hover:not(:disabled) {
+    background: var(--theme-accent-1);
+    color: var(--bg-primary);
+    box-shadow: 0 0 20px var(--theme-glow);
+}
+
+.sliderBtn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .card {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 0;
-    /* Boxy/Tech feel */
-    position: relative;
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
-    z-index: 10;
+    border-color: var(--theme-accent-1);
+    box-shadow: 0 0 30px var(--theme-glow);
+    transform: translateY(-5px);
 }
 
 .projectId {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    left: 1rem;
     font-family: var(--font-mono);
     font-size: 0.6rem;
-    color: var(--accent-cyan);
-    z-index: 20;
-    background: rgba(5, 5, 5, 0.8);
+    color: var(--theme-accent-1);
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.6);
     padding: 0.2rem 0.5rem;
-    border: 1px solid var(--accent-cyan);
+    border: 1px solid var(--theme-accent-1);
 }
 
 .imageWrapper {
     position: relative;
+    aspect-ratio: 16 / 9;
     width: 100%;
-    height: 300px;
-    /* Taller images */
     overflow: hidden;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .image {
     object-fit: cover;
-    transition: transform 0.5s ease;
-    filter: grayscale(100%);
+    transition: transform 0.6s ease;
 }
 
 .card:hover .image {
     transform: scale(1.05);
-    filter: grayscale(0%) contrast(1.1);
 }
 
 .scanOverlay {
@@ -69,25 +104,20 @@
             transparent 50%,
             rgba(0, 243, 255, 0.05) 50%);
     background-size: 100% 4px;
-    z-index: 5;
+    z-index: 2;
     pointer-events: none;
-    opacity: 0.3;
-}
-
-.card:hover .scanOverlay {
-    animation: scanLine 2s linear infinite;
-    opacity: 0.6;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 3;
 }
 
 .card:hover .overlay {
@@ -95,83 +125,74 @@
 }
 
 .viewText {
-    color: #fff;
-    background: var(--accent-cyan);
-    padding: 1rem 2rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    color: var(--theme-accent-1);
+    font-family: var(--font-mono);
+    font-weight: 700;
     letter-spacing: 2px;
-    transform: skew(-10deg);
 }
 
 .content {
     padding: 2rem;
-    background:
-        linear-gradient(45deg, transparent 5%, var(--bg-primary) 5%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .projectTitle {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 900;
     color: var(--text-primary);
-    text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
 
 .category {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
     font-family: var(--font-mono);
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
+    color: var(--theme-accent-1);
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
 }
 
 .cardFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid var(--border-color);
-    padding-top: 1rem;
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.65rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem;
 }
 
 .status {
-    color: var(--accent-cyan);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.status::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--accent-cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 5px var(--accent-cyan);
+    color: var(--theme-accent-2);
 }
 
 .trace {
-    opacity: 0.3;
+    color: var(--text-secondary);
+    opacity: 0.5;
 }
 
-@keyframes scanLine {
-    0% {
-        transform: translateY(-100%);
-    }
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
 
-    100% {
-        transform: translateY(100%);
-    }
+.dot {
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--theme-accent-1);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activeDot {
+    background: var(--theme-accent-1);
+    box-shadow: 0 0 10px var(--theme-accent-1);
 }
 
 @media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .imageWrapper {
-        height: 200px;
+    .sliderBtn {
+        display: none;
     }
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import ThemeSelector from './ThemeSelector';
 import styles from './HUD.module.css';
 
 const HUD = () => {
@@ -22,13 +23,13 @@ const HUD = () => {
         }, 1000);
 
         const handleScroll = () => {
-            const sections = ['hero', 'about', 'projects', 'contact'];
+            const sections = ['hero', 'about', 'philosophy', 'workflow', 'testimonials', 'projects', 'labs', 'contact'];
             for (const id of sections) {
                 const el = document.getElementById(id);
                 if (el) {
                     const rect = el.getBoundingClientRect();
-                    if (rect.top <= 200 && rect.bottom >= 200) {
-                        setSection(`SEC_${sections.indexOf(id) + 1} // ${id.toUpperCase()}`);
+                    if (rect.top <= 300 && rect.bottom >= 300) {
+                        setSection(`SEC_0${sections.indexOf(id) + 1} // ${id.toUpperCase()}`);
                         break;
                     }
                 }
@@ -49,6 +50,9 @@ const HUD = () => {
                 <div className={styles.systemInfo}>
                     <span className={styles.label}>SYS_STATUS:</span>
                     <span className={styles.value}>OPERATIONAL</span>
+                </div>
+                <div className={styles.themeControl}>
+                    <ThemeSelector />
                 </div>
                 <div className={styles.clock}>
                     <span className={styles.label}>TIMESTAMP:</span>

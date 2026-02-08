@@ -5,13 +5,22 @@
   --bg-card: rgba(20, 20, 20, 0.6);
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
-  --accent-cyan: #00f3ff;
-  --accent-purple: #bc13fe;
-  --accent-glow: rgba(0, 243, 255, 0.5);
+
+  /* Themes (Default: Cyber) */
+  --theme-accent-1: #00f3ff;
+  --theme-accent-2: #bc13fe;
+  --theme-glow: rgba(0, 243, 255, 0.4);
+  --theme-secondary-glow: rgba(188, 19, 254, 0.4);
+
+  /* Legacy Compat (To be phased out) */
+  --accent-cyan: var(--theme-accent-1);
+  --accent-purple: var(--theme-accent-2);
 
   /* Fonts */
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'Roboto Mono', monospace;
+  --font-sans: 'Inter',
+    sans-serif;
+  --font-mono: 'Roboto Mono',
+    monospace;
 
   /* Spacing */
   --spacing-sm: 0.5rem;
@@ -65,12 +74,12 @@ button {
 }
 
 .tech-border {
-  border: 1px solid var(--accent-cyan);
-  box-shadow: 0 0 10px var(--accent-glow);
+  border: 1px solid var(--theme-accent-1);
+  box-shadow: 0 0 15px var(--theme-glow);
 }
 
 .text-gradient {
-  background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
+  background: linear-gradient(to right, var(--theme-accent-1), var(--theme-accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

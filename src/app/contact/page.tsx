@@ -1,9 +1,10 @@
 import ContactForm from "@/components/ContactForm";
+import DossierLayout from "@/components/DossierLayout";
 
 export default function ContactPage() {
     return (
-        <main style={{ paddingTop: '80px' }}>
+        <DossierLayout title="Sync Comms" sector="08 // COMM_PROTOCOLS">
             <ContactForm />
-        </main>
+        </DossierLayout>
     );
 }

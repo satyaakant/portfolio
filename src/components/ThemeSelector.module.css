@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    pointer-events: all;
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+
+.options {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.swatch:nth-child(1) {
+    background: #00f3ff;
+}
+
+/* Cyber */
+.swatch:nth-child(2) {
+    background: #ffb000;
+}
+
+/* Amber */
+.swatch:nth-child(3) {
+    background: #00ff8a;
+}
+
+/* Emerald */
+.swatch:nth-child(4) {
+    background: #ff007a;
+}
+
+/* Rose */
+
+.active {
+    border-color: #fff;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.indicator {
+    position: absolute;
+    inset: -4px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    pointer-events: none;
+}

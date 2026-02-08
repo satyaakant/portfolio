@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import HUD from "@/components/HUD";
 import Preloader from "@/components/Preloader";
@@ -30,14 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased`}
-      >
-        <Preloader />
-        <HUD />
-        <MiniMap />
-        <Navbar />
-        {children}
+      <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
+        <ThemeProvider>
+          <Preloader />
+          <HUD />
+          <MiniMap />
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

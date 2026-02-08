@@ -14,6 +14,7 @@ const Philosophy = () => {
                             I don't just write code. <br />
                             <span className={styles.highlight}>I craft experiences.</span>
                         </h2>
+                        <div className={styles.protocolId}>PROTOCOL_V2.0.4 // ADHERENCE: 100%</div>
                     </div>
                 </ScrollReveal>
 

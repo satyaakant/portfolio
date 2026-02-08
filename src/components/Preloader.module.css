@@ -9,13 +9,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent-cyan);
+    color: var(--theme-accent-1);
     font-family: var(--font-mono);
 }
 
 .content {
-    width: 400px;
-    max-width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    max-width: 90vw;
 }
 
 .glitchTitle {
@@ -24,35 +27,61 @@
     letter-spacing: 5px;
     margin-bottom: 2rem;
     text-align: center;
-    text-shadow: 2px 0 var(--accent-purple), -2px 0 var(--accent-cyan);
+    color: var(--text-primary);
+    text-shadow: 2px 0 var(--theme-accent-2), -2px 0 var(--theme-accent-1);
 }
 
 .statusRow {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
 }
 
-.progressTrack {
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1rem;
+.gameContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    margin: 2rem 0;
 }
 
-.progressFill {
-    height: 100%;
-    background: var(--accent-cyan);
-    box-shadow: 0 0 10px var(--accent-cyan);
+.bypassBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.bypassBtn:hover {
+    opacity: 1;
+    border-color: var(--theme-accent-1);
+    color: var(--theme-accent-1);
+}
+
+.syncing {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--theme-accent-1);
+    margin: 4rem 0;
+    letter-spacing: 2px;
+    text-align: center;
 }
 
 .metaRow {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     font-size: 0.6rem;
-    opacity: 0.5;
+    opacity: 0.4;
     letter-spacing: 1px;
+    margin-top: 3rem;
 }

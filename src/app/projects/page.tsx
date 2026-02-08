@@ -1,9 +1,10 @@
 import Projects from "@/components/Projects";
+import DossierLayout from "@/components/DossierLayout";
 
 export default function ProjectsPage() {
     return (
-        <main style={{ paddingTop: '80px' }}>
+        <DossierLayout title="Selected Works" sector="06 // PROJECT_DOSSIER">
             <Projects />
-        </main>
+        </DossierLayout>
     );
 }

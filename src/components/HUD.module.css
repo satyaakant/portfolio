@@ -16,8 +16,15 @@
 .topHud {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
-    background: linear-gradient(to bottom, rgba(0, 243, 255, 0.05), transparent);
+    align-items: flex-start;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
+    pointer-events: none;
+}
+
+.themeControl {
+    pointer-events: all;
+    margin-top: -0.5rem;
 }
 
 .label {

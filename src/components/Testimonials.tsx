@@ -13,18 +13,26 @@ const testimonials = [
         rotate: -5
     },
     {
-        name: "Aditya",
-        company: "A.V Tech",
-        text: "We approached Satya to develop the website for Trip and Roll, and we couldn't be happier with the results. His commitment to delivering high-quality work on time makes him an exceptional partner.",
+        name: "Value on Shore",
+        company: "Client Project",
+        text: "We approached Satya to develop a comprehensive business valuation model. His technical expertise and attention to detail resulted in a robust solution that exceeded our expectations.",
         avatar: "/assets/images/avatar-4.png",
         color: "#00ccff",
-        rotate: 5
+        rotate: 3
     },
     {
-        name: "Daniel Lewis",
-        company: "Corporate Identity",
-        text: "We were very pleased with the work done. He has a lot of experience and is very concerned about the needs of client. Highly recommended for any design projects.",
-        avatar: "/assets/images/avatar-1.png", // Reuse
+        name: "AVTech Services",
+        company: "Technology Partner",
+        text: "Satya's work on our web development projects has been outstanding. His ability to deliver high-quality solutions on time makes him a valuable partner for any technical project.",
+        avatar: "/assets/images/avatar-1.png",
+        color: "#00ff88",
+        rotate: -3
+    },
+    {
+        name: "Surbhi Kansal",
+        company: "Freelance Client",
+        text: "Satya delivered exceptional website development services. His professionalism and ability to translate our vision into a functional, beautiful site was impressive. Highly recommend!",
+        avatar: "/assets/images/avatar-4.png",
         color: "#ffcc00",
         rotate: -2
     }
@@ -32,23 +40,37 @@ const testimonials = [
 
 export const Testimonials = () => {
     return (
-        <section className={styles.container}>
-            <h2 className={styles.title}>Client Love <span style={{ fontSize: '1rem' }}>(Drag us!)</span></h2>
+        <section className={styles.container} id="testimonials">
+            <div className={styles.terminalHeader}>
+                <span className={styles.sectorId}>SECTOR: 05 // NEURAL_FEEDBACK</span>
+                <h2 className={styles.title}>Client Love <span className={styles.hint}>(Drag us!)</span></h2>
+            </div>
             <div className={styles.scatterGrid}>
+                <div className={styles.techGrid}></div>
                 {testimonials.map((t, i) => (
                     <DraggableCard
                         key={i}
                         className={styles.card}
-                        initial={{ x: 0, y: 0, rotate: t.rotate }}
+                        style={{
+                            left: `${(i * 340 + 50)}px`,
+                            top: `100px`,
+                            rotate: `${t.rotate}deg`
+                        }}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.1 }}
                     >
-                        <div className={styles.tape}></div>
-                        <div className={styles.inner} style={{ borderColor: t.color }}>
+                        <div className={styles.inner}>
+                            <div className={styles.cardHeader}>
+                                <div className={styles.dot}></div>
+                                <div className={styles.protocol}>DOSSIER_EXP_{i + 1}</div>
+                            </div>
                             <p className={styles.quote}>"{t.text}"</p>
                             <div className={styles.author}>
-                                <div className={styles.avatar} style={{ background: t.color }}>
+                                <div className={styles.avatar}>
                                     {t.name[0]}
                                 </div>
-                                <div>
+                                <div className={styles.authorMeta}>
                                     <h4 className={styles.name}>{t.name}</h4>
                                     <small className={styles.company}>{t.company}</small>
                                 </div>

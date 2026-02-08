@@ -1,9 +1,10 @@
 import Resume from "@/components/Resume";
+import DossierLayout from "@/components/DossierLayout";
 
 export default function ResumePage() {
     return (
-        <main style={{ paddingTop: '80px' }}>
+        <DossierLayout title="Career Dossier" sector="07 // TACTICAL_RESUME">
             <Resume />
-        </main>
+        </DossierLayout>
     );
 }

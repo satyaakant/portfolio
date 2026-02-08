@@ -13,21 +13,24 @@ const steps = [
 const Workflow = () => {
     return (
         <section className={styles.workflowSection}>
-            <div className="container">
-                <ScrollReveal>
+            <div className="container" id="workflow">
+                <ScrollReveal width="100%">
                     <div className={styles.terminalHeader}>
-                        <span className={styles.sectorId}>PROCEDURE: OPTIMIZED_EXECUTION_FLOW</span>
-                        <h2 className={`h2 text-gradient ${styles.sectionHeader}`}>The Process</h2>
+                        <span className={styles.sectorId}>SECTOR: 04 // EXECUTION_PROCEDURE</span>
+                        <h2 className="h2 text-gradient" style={{ textAlign: 'left', marginBottom: '1.5rem', fontWeight: '800' }}>MY WORKFLOW</h2>
+                        <div className={styles.protocolId}>METHODOLOGY: AGILE_SCRUM_V3 // SYNC_FREQ: 24H_CYCLES</div>
                     </div>
                 </ScrollReveal>
 
                 <div className={styles.workflowGrid}>
                     {steps.map((step, i) => (
                         <ScrollReveal key={i} delay={i * 0.1}>
-                            <div className={styles.stepCard}>
+                            <div className={styles.step}>
                                 <div className={styles.stepNum}>{step.num}</div>
-                                <h4 className={styles.stepTitle}>{step.title}</h4>
-                                <p className={styles.stepDesc}>{step.desc}</p>
+                                <div className={styles.stepContent}>
+                                    <h4 className={styles.stepTitle}>{step.title}</h4>
+                                    <p className={styles.stepDesc}>{step.desc}</p>
+                                </div>
                             </div>
                         </ScrollReveal>
                     ))}

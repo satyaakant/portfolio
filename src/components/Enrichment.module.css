@@ -1,199 +1,144 @@
-/* Shared Styles for Phase 6 Content */
+/* Shared Enrichment Styles */
 
-/* Philosophy */
-.philosophySection {
-    padding: 8rem 0;
-    background: var(--bg-primary);
-    border-bottom: 2px solid var(--border-color);
+.philosophySection,
+.workflowSection {
+    padding: var(--spacing-xl) 0;
     position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .terminalHeader {
-    margin-bottom: 5rem;
-    border-left: 2px solid var(--accent-cyan);
+    margin-bottom: 4rem;
+    border-left: 2px solid var(--theme-accent-1);
     padding-left: 2rem;
+    position: relative;
 }
 
 .sectorId {
     display: block;
     font-family: var(--font-mono);
-    color: var(--accent-cyan);
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
+    color: var(--theme-accent-1);
+    font-size: 0.6rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
 }
 
 .manifestoTitle {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: 3.5rem;
     font-weight: 900;
     line-height: 1.1;
-    color: var(--text-primary);
     text-transform: uppercase;
+    margin-bottom: 1.5rem;
 }
 
 .highlight {
+    background: linear-gradient(to right, var(--theme-accent-1), var(--theme-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
-    -webkit-text-stroke: 1px var(--accent-purple);
     font-style: italic;
+}
+
+.protocolId {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    opacity: 0.4;
+    letter-spacing: 1px;
+    margin-top: 1rem;
 }
 
 .principalsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
+    margin-top: 4rem;
+}
+
+.principal {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.principal:hover {
+    border-color: var(--theme-accent-1);
+    background: var(--theme-glow);
+    transform: translateY(-5px);
 }
 
 .principal h3 {
-    font-size: 1.6rem;
-    color: var(--accent-cyan);
-    margin-bottom: 1.5rem;
     font-family: var(--font-mono);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.principal h3::before {
-    content: '>';
-    opacity: 0.5;
+    color: var(--theme-accent-1);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .principal p {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    max-width: 400px;
-}
-
-/* Workflow */
-.workflowSection {
-    padding: 8rem 0;
-    background: var(--bg-secondary);
-    position: relative;
-}
-
-.sectionHeader {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 3rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    line-height: 1.6;
 }
 
 .workflowGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    margin-top: 4rem;
+}
+
+.step {
     position: relative;
 }
 
-.stepCard {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2rem;
-    border: 1px solid var(--border-color);
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-
-.stepCard:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-cyan);
-}
-
 .stepNum {
-    font-size: 5rem;
-    font-weight: 900;
-    color: rgba(0, 243, 255, 0.05);
-    margin-bottom: -1.5rem;
     font-family: var(--font-mono);
-    transition: color 0.3s ease;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    position: absolute;
+    top: -2rem;
+    left: -1rem;
+    z-index: 0;
 }
 
-.stepCard:hover .stepNum {
-    color: rgba(0, 243, 255, 0.15);
+.stepContent {
+    position: relative;
+    z-index: 1;
 }
 
 .stepTitle {
-    font-size: 1.6rem;
-    color: var(--text-primary);
-    margin-bottom: 1.2rem;
+    color: var(--theme-accent-1);
+    font-size: 1.2rem;
     font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.stepTitle::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border-color);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 .stepDesc {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.6;
 }
 
-/* Stats */
-.statsSection {
-    padding: 6rem 0;
-    border-top: 2px solid var(--border-color);
-    background: var(--bg-primary);
-}
+@media (max-width: 1024px) {
 
-.statsGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    text-align: center;
-}
-
-.statValue {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--accent-purple);
-    margin-bottom: 0.5rem;
-    position: relative;
-}
-
-.statValue::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--accent-cyan);
-    opacity: 0.5;
-    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
-    transform: translate(-2px, -2px);
-    z-index: -1;
-}
-
-.statLabel {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    .principalsGrid,
+    .workflowGrid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 768px) {
     .manifestoTitle {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
-    .workflowGrid,
-    .statsGrid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
-    }
-
+    .principalsGrid,
     .workflowGrid {
-        gap: 1rem;
+        grid-template-columns: 1fr;
     }
 }

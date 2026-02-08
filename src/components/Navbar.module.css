@@ -32,7 +32,7 @@
 }
 
 .dot {
-    color: var(--accent-cyan);
+    color: var(--theme-accent-1);
 }
 
 .navList {
@@ -60,7 +60,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-cyan);
+    background: var(--theme-accent-1);
     transition: width 0.3s ease;
 }
 
