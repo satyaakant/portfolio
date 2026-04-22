@@ -12,7 +12,7 @@ const projects = [
         title: 'Befin',
         category: 'Finance Web App',
         image: '/assets/images/project-1.jpg',
-        link: 'https://www.thebefin.com/',
+        link: 'https://app.thebefin.com/login',
     },
     {
         id: 2,
@@ -26,7 +26,14 @@ const projects = [
         title: 'ERP System',
         category: 'Enterprise Resource Planning',
         image: '/assets/images/project-3.jpg',
-        link: 'https://maytri.netlify.app/login',
+        link: 'https://maytri.netlify.app/',
+    },
+    {
+        id: 4,
+        title: 'Travel Site',
+        category: 'Travel & Tourism',
+        image: '/assets/images/project-4.png',
+        link: 'https://tripnrolltravel.com/',
     },
 ];
 

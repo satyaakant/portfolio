@@ -43,7 +43,7 @@ export default function Home() {
         <Testimonials />
       </section>
 
-      <div className="container" style={{ textAlign: 'center', padding: '4rem 0' }}>
+      <div className="container" style={{ textAlign: 'center', padding: 'var(--spacing-xl) 0' }}>
         <h2 className={`h2 text-gradient ${styles.glitch}`} data-text="SELECTED WORKS">SELECTED WORKS</h2>
       </div>
       <section id="projects">
