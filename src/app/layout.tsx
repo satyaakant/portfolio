@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import Navbar from "@/components/Navbar";
-import HUD from "@/components/HUD";
-import Preloader from "@/components/Preloader";
-import MiniMap from "@/components/MiniMap";
+import { Geist, Geist_Mono, Sofia_Sans_Extra_Condensed } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
+import { profile } from "@/data/portfolio";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sofia = Sofia_Sans_Extra_Condensed({
+  variable: "--font-sofia",
+  subsets: ["latin"],
+  weight: ["800", "900"],
+  display: "swap",
+});
+
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
   display: "swap",
 });
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Satya Kant Mishra | Tech Portfolio",
-  description: "Web Developer Portfolio of Satya Kant Mishra",
+  title: `${profile.fullName} — ${profile.role}`,
+  description: profile.tagline,
 };
 
 export default function RootLayout({
@@ -30,15 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
-        <ThemeProvider>
-          <Preloader />
-          <HUD />
-          <MiniMap />
-          <Navbar />
-          {children}
-        </ThemeProvider>
+    <html lang="en" className={`${sofia.variable} ${geist.variable} ${geistMono.variable}`}>
+      <body>
+        <SiteHeader />
+        {children}
       </body>
     </html>
   );

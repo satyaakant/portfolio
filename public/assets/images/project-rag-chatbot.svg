@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1036"/>
+      <stop offset="1" stop-color="#3a1d6e"/>
+    </linearGradient>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="1040" cy="120" r="260" fill="#7c4dff" opacity="0.25"/>
+  <circle cx="140" cy="820" r="220" fill="#ff6fb5" opacity="0.18"/>
+
+  <!-- Knowledge sources (left) -->
+  <g font-size="22" fill="#fff">
+    <text x="70" y="120" font-size="18" letter-spacing="3" fill="#c9b8ff">KNOWLEDGE BASE</text>
+    <g transform="translate(70 150)">
+      <rect width="250" height="76" rx="16" fill="#ffffff" opacity="0.1"/>
+      <rect x="18" y="18" width="40" height="40" rx="10" fill="#ff6f61"/>
+      <text x="74" y="46">policies.pdf</text>
+    </g>
+    <g transform="translate(70 246)">
+      <rect width="250" height="76" rx="16" fill="#ffffff" opacity="0.1"/>
+      <rect x="18" y="18" width="40" height="40" rx="10" fill="#f2c230"/>
+      <text x="74" y="46">product-faq.md</text>
+    </g>
+    <g transform="translate(70 342)">
+      <rect width="250" height="76" rx="16" fill="#ffffff" opacity="0.1"/>
+      <rect x="18" y="18" width="40" height="40" rx="10" fill="#34c759"/>
+      <text x="74" y="46">pricing.xlsx</text>
+    </g>
+    <g transform="translate(70 438)">
+      <rect width="250" height="76" rx="16" fill="#ffffff" opacity="0.1"/>
+      <rect x="18" y="18" width="40" height="40" rx="10" fill="#4aa3ff"/>
+      <text x="74" y="46">website pages</text>
+    </g>
+    <!-- embeddings flow -->
+    <text x="70" y="590" font-size="18" letter-spacing="3" fill="#c9b8ff">EMBED → VECTOR DB</text>
+    <g fill="#c9b8ff">
+      <circle cx="90" cy="630" r="7"/><circle cx="130" cy="652" r="7" opacity="0.7"/><circle cx="168" cy="620" r="7"/>
+      <circle cx="205" cy="660" r="7" opacity="0.6"/><circle cx="245" cy="632" r="7"/><circle cx="285" cy="655" r="7" opacity="0.8"/>
+      <circle cx="110" cy="690" r="7" opacity="0.5"/><circle cx="190" cy="700" r="7"/><circle cx="265" cy="695" r="7" opacity="0.6"/>
+    </g>
+    <path d="M330 440 C 380 440, 360 440, 400 440" stroke="#c9b8ff" stroke-width="3" stroke-dasharray="8 8" fill="none"/>
+  </g>
+
+  <!-- Chat window -->
+  <g filter="url(#sh)">
+    <rect x="410" y="90" width="720" height="720" rx="32" fill="#fbfaff"/>
+  </g>
+  <rect x="410" y="90" width="720" height="92" rx="32" fill="#ffffff"/>
+  <rect x="410" y="150" width="720" height="32" fill="#ffffff"/>
+  <line x1="410" y1="182" x2="1130" y2="182" stroke="#ece8f7" stroke-width="2"/>
+  <circle cx="462" cy="136" r="24" fill="#7c4dff"/>
+  <text x="462" y="144" font-size="20" fill="#fff" text-anchor="middle" font-weight="700">AI</text>
+  <text x="500" y="130" font-size="22" font-weight="700" fill="#1b1036">Support Assistant</text>
+  <circle cx="506" cy="152" r="6" fill="#34c759"/>
+  <text x="520" y="158" font-size="16" fill="#6b6780">Answers from your own docs</text>
+
+  <!-- user msg -->
+  <rect x="740" y="220" width="350" height="70" rx="22" fill="#7c4dff"/>
+  <text x="768" y="263" font-size="20" fill="#fff">What's the refund window?</text>
+
+  <!-- bot msg -->
+  <rect x="450" y="320" width="520" height="190" rx="22" fill="#ffffff" stroke="#ece8f7" stroke-width="2"/>
+  <text x="478" y="362" font-size="20" fill="#1b1036">Refunds are accepted within 14 days</text>
+  <text x="478" y="392" font-size="20" fill="#1b1036">of purchase for unused plans. Annual</text>
+  <text x="478" y="422" font-size="20" fill="#1b1036">plans are refunded pro-rata.</text>
+  <g font-size="15" fill="#5b3fd1">
+    <rect x="478" y="448" width="150" height="38" rx="19" fill="#efe9ff"/>
+    <text x="496" y="473">📄 policies.pdf · p4</text>
+    <rect x="640" y="448" width="170" height="38" rx="19" fill="#efe9ff"/>
+    <text x="658" y="473">📄 product-faq.md</text>
+  </g>
+
+  <!-- user msg 2 -->
+  <rect x="790" y="545" width="300" height="70" rx="22" fill="#7c4dff"/>
+  <text x="818" y="588" font-size="20" fill="#fff">Book a demo for me</text>
+
+  <!-- typing -->
+  <rect x="450" y="645" width="110" height="56" rx="22" fill="#ffffff" stroke="#ece8f7" stroke-width="2"/>
+  <circle cx="482" cy="673" r="7" fill="#b9acef"/><circle cx="505" cy="673" r="7" fill="#9b88ea"/><circle cx="528" cy="673" r="7" fill="#7c4dff"/>
+
+  <!-- input -->
+  <rect x="440" y="730" width="660" height="56" rx="28" fill="#ffffff" stroke="#e2dcf3" stroke-width="2"/>
+  <text x="470" y="765" font-size="18" fill="#a29db8">Ask anything about the product…</text>
+  <circle cx="1070" cy="758" r="20" fill="#1b1036"/>
+  <path d="M1062 758 h16 m-6 -6 l6 6 l-6 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

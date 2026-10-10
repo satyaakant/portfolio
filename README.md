@@ -34,3 +34,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Updating the portfolio
+
+All content lives in [`src/data/portfolio.ts`](src/data/portfolio.ts):
+
+- **New project** → add an object to the top of `projects` (title, genre, summary, image, link, color).
+- **New thing you're exploring** → add an object to the top of `exploring` (title, genre, note, status, since, color).
+- **New genre** → just use a new `genre` string. Archive filter chips, lock-screen notifications and stats update automatically.
+
+Put images in `public/assets/images/`. For light panel colours (yellow, pink…) set `ink: "dark"`.

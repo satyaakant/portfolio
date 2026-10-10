@@ -1,10 +1,8 @@
-import Projects from "@/components/Projects";
-import DossierLayout from "@/components/DossierLayout";
+import type { Metadata } from "next";
+import Archive from "@/components/Archive";
+
+export const metadata: Metadata = { title: "Archive — Satya Kant Mishra" };
 
 export default function ProjectsPage() {
-    return (
-        <DossierLayout title="Selected Works" sector="06 // PROJECT_DOSSIER">
-            <Projects />
-        </DossierLayout>
-    );
+    return <Archive />;
 }

@@ -1,0 +1,374 @@
+.title {
+    font-size: clamp(88px, 18vw, 240px);
+}
+
+.lede {
+    max-width: 46ch;
+    margin-top: 16px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+.block {
+    margin-top: 64px;
+}
+
+.block > h2 {
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-soft);
+}
+
+/* ── Archive ─────────────────────────────────── */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.filters button {
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.chipOn {
+    background: var(--ink) !important;
+    border-color: var(--ink) !important;
+    color: #fff;
+}
+
+.count {
+    margin-left: 6px;
+    opacity: 0.55;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 16px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 22px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.cardImg {
+    padding: 22px 22px 0;
+    background: rgba(0, 0, 0, 0.14);
+}
+
+.cardImg img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
+}
+
+.cardBody h3 {
+    font-size: 36px;
+}
+
+.cardBody p {
+    font-size: 14px;
+    line-height: 1.45;
+    opacity: 0.85;
+}
+
+.cardBody {
+    flex: 1;
+}
+
+.highlights {
+    display: grid;
+    gap: 6px;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.85;
+}
+
+.cardCta {
+    margin-top: auto;
+    padding-top: 6px;
+}
+
+.ndaCard {
+    align-self: start;
+    border-radius: 22px;
+}
+
+.rows {
+    list-style: none;
+}
+
+.rows li {
+    display: grid;
+    grid-template-columns: 14px 1fr auto auto;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.rows h3 {
+    font-size: 32px;
+}
+
+.rows p {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--card);
+    border: 1px solid var(--line);
+}
+
+@media (max-width: 640px) {
+    .rows li {
+        grid-template-columns: 14px 1fr;
+        row-gap: 8px;
+    }
+
+    .rows li > :global(.mono) {
+        grid-column: 2;
+        justify-self: start;
+    }
+}
+
+/* ── About ───────────────────────────────────── */
+
+.aboutHead {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+.aboutHead :global(.mono) {
+    color: var(--ink-soft);
+}
+
+.aboutAvatar {
+    width: clamp(90px, 14vw, 160px);
+    aspect-ratio: 1;
+    border-radius: 28px;
+    object-fit: cover;
+    object-position: 50% 35%;
+    background: #b9bcbf;
+}
+
+.intro {
+    display: grid;
+    gap: 14px;
+    max-width: 62ch;
+    margin-top: 32px;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.45;
+}
+
+.timeline {
+    list-style: none;
+}
+
+.timeline li {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline li > :global(.mono) {
+    padding-top: 8px;
+    color: var(--ink-soft);
+}
+
+.timeline h3 {
+    font-size: clamp(32px, 4vw, 44px);
+}
+
+.timeline p {
+    max-width: 60ch;
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+.timeline .company {
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+@media (max-width: 640px) {
+    .timeline li {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+}
+
+/* ── Contact ─────────────────────────────────── */
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 24px;
+}
+
+.contactSide {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bigMail {
+    font-size: clamp(30px, 4vw, 52px);
+    overflow-wrap: anywhere;
+    text-transform: none;
+}
+
+.bigMail:hover {
+    text-decoration: underline;
+}
+
+.form {
+    display: grid;
+    gap: 16px;
+    padding: 28px;
+    border-radius: 24px;
+    background: var(--card);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+}
+
+.form label {
+    display: grid;
+    gap: 8px;
+}
+
+.form label :global(.mono) {
+    color: var(--ink-soft);
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper);
+    font: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    resize: vertical;
+}
+
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+}
+
+.form button {
+    justify-self: start;
+}
+
+.form button:disabled {
+    opacity: 0.6;
+}
+
+.formStatus {
+    min-height: 1.4em;
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+
+@media (max-width: 820px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Footer ──────────────────────────────────── */
+
+.footer {
+    margin-top: 96px;
+}
+
+.footerCta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 28px 32px;
+    border-radius: 24px;
+    background: var(--night);
+    color: #fff;
+}
+
+.footerCta h2 {
+    font-size: clamp(32px, 5vw, 60px);
+}
+
+.footerCta :global(.btn-dark) {
+    background: #fff;
+    color: var(--ink);
+}
+
+.footerMeta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 4px 0;
+    color: var(--ink-soft);
+}
+
+.footerLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media (max-width: 640px) {
+    .footerCta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

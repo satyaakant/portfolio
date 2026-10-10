@@ -1,0 +1,520 @@
+/* ── Stage ───────────────────────────────────── */
+
+.stage {
+    position: relative;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.words span {
+    position: absolute;
+    white-space: nowrap;
+    color: var(--ink);
+    will-change: transform, opacity;
+}
+
+.wordsH span {
+    top: 50%;
+    translate: 0 -50%;
+}
+
+.wordsV span {
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.intro {
+    position: absolute;
+    inset: 0;
+}
+
+.glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 42%;
+    filter: blur(70px);
+    opacity: 0.55;
+    transition: background-color 0.8s ease;
+    animation: breathe 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes breathe {
+    50% {
+        opacity: 0.38;
+    }
+}
+
+.shadow {
+    position: absolute;
+    left: 50%;
+    height: 60px;
+    translate: -50% -10px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.22), transparent);
+    filter: blur(8px);
+    pointer-events: none;
+}
+
+/* ── Device ──────────────────────────────────── */
+
+.device {
+    --frame: #d9d6cf;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    perspective: 2600px;
+    transform-style: preserve-3d;
+}
+
+.half,
+.face {
+    position: absolute;
+    background: var(--frame);
+    transition: background 0.4s ease;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.bezel {
+    position: absolute;
+    background: #0b0b0b;
+    border-radius: inherit;
+}
+
+.screen {
+    position: absolute;
+    overflow: hidden;
+    background: #fff;
+    container: screen / inline-size;
+    transform: translateZ(0);
+}
+
+/* Glass: a soft reflection across the screen plus a faint inner glow at the edges */
+.screen::after,
+.outerScreen::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 42%);
+    box-shadow: inset 0 0 28px rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+}
+
+.content {
+    will-change: transform;
+}
+
+.statusBar {
+    position: absolute;
+    z-index: 3;
+    inset: 0 0 auto 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #fff;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+.pill {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: 14px;
+    translate: -50% 0;
+    display: flex;
+    gap: 2px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(20, 20, 20, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.pill button {
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.pill button:hover {
+    color: #fff;
+}
+
+.pill .pillActive {
+    background: #fff;
+    color: #0b0b0b;
+}
+
+@container screen (max-width: 420px) {
+    .pill button {
+        padding: 6px 9px;
+        font-size: 11px;
+    }
+}
+
+.flap {
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.flap .face {
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flap .frontRing {
+    background: transparent;
+    border-style: solid;
+    border-color: var(--frame);
+    box-shadow: none;
+    transition: border-color 0.4s ease;
+}
+
+.ringBezel {
+    position: absolute;
+    inset: 0;
+    border-style: solid;
+    border-color: #0b0b0b;
+    border-radius: inherit;
+}
+
+.innerShade {
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+    background: linear-gradient(120deg, #1d1d1f, #3a3a3c);
+}
+
+.outerScreen {
+    position: absolute;
+    overflow: hidden;
+    container: face / size;
+}
+
+/* ── Lock screen ─────────────────────────────── */
+
+.lock {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 9cqh 5cqw 4cqh;
+    background: #b9bcbf;
+    color: #0b0b0b;
+}
+
+.lock > * {
+    position: relative;
+}
+
+.lock > .lockPhoto {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+}
+
+/* Darken the bottom so notifications stay readable over the suit */
+.lock::before {
+    content: "";
+    position: absolute;
+    inset: 55% 0 0 0;
+    z-index: 1;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.35));
+}
+
+.lock > :not(.lockPhoto) {
+    z-index: 2;
+}
+
+.lockTop {
+    text-align: center;
+}
+
+.clock {
+    font-size: clamp(48px, 24cqmin, 150px);
+    line-height: 0.9;
+}
+
+.lockRole {
+    margin-top: 1.5cqh;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.notes {
+    margin-top: auto;
+    list-style: none;
+    width: 100%;
+    display: grid;
+    gap: 8px;
+}
+
+.note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.noteIcon {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.noteIcon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.noteText {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+}
+
+.noteText strong {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.noteText .mono,
+.noteText strong {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.noteText :global(.mono) {
+    font-size: 10px;
+}
+
+.lockBar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3cqh;
+}
+
+.round {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.hint {
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Landscape outer screen (phones): tighter layout */
+@container face (aspect-ratio > 1) {
+    .lock {
+        align-items: flex-start;
+        padding: 7cqh 4cqw 4cqh;
+        background: linear-gradient(#f2f1ee, #e2e1dd);
+    }
+
+    .lock::before {
+        display: none;
+    }
+
+    /* Photo sits on the right half; text on the left */
+    .lock > .lockPhoto {
+        left: auto;
+        right: 0;
+        width: 46%;
+        object-position: 50% 35%;
+        mask-image: linear-gradient(90deg, transparent, #000 30%);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%);
+    }
+
+    .lockTop {
+        text-align: left;
+    }
+
+    .clock {
+        font-size: clamp(40px, 26cqh, 110px);
+    }
+
+    .notes {
+        width: 62%;
+    }
+
+    .note:nth-child(n + 2) {
+        display: none;
+    }
+}
+
+/* ── Contact screen (folded, at the end) ───── */
+
+.contact {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3cqh;
+    padding: 8cqh 6cqw 4cqh;
+    background: radial-gradient(90% 60% at 50% 30%, #1f1f22, #0b0b0b);
+    color: #fff;
+    overflow-y: auto;
+}
+
+.contactTitle {
+    font-size: clamp(40px, 15cqmin, 96px);
+}
+
+.contactTop p {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.deviceForm {
+    display: grid;
+    gap: 10px;
+}
+
+.deviceForm label {
+    display: grid;
+    gap: 6px;
+}
+
+.deviceForm label :global(.mono) {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.deviceForm input,
+.deviceForm textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    font: inherit;
+    font-size: 14px;
+    color: #fff;
+    resize: none;
+}
+
+.deviceForm textarea {
+    height: 18cqh;
+    min-height: 64px;
+}
+
+.deviceForm input::placeholder,
+.deviceForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.deviceForm input:focus,
+.deviceForm textarea:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.deviceForm button {
+    justify-self: start;
+    background: #fff;
+    color: #0b0b0b;
+}
+
+.deviceForm button:disabled {
+    opacity: 0.6;
+}
+
+.deviceForm [role="status"] {
+    min-height: 1.2em;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.contactMail {
+    margin-top: auto;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Landscape outer screen (phones): two columns, labels hidden */
+@container face (aspect-ratio > 1) {
+    .contact {
+        padding: 6cqh 5cqw 4cqh;
+        gap: 2cqh;
+    }
+
+    .contactTitle {
+        font-size: clamp(30px, 14cqh, 56px);
+    }
+
+    .contactTop p,
+    .contactMail {
+        display: none;
+    }
+
+    .deviceForm {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .deviceForm label :global(.mono) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+
+    .deviceForm label:nth-of-type(3) {
+        grid-column: 1 / -1;
+    }
+
+    .deviceForm textarea {
+        height: 22cqh;
+        min-height: 48px;
+    }
+
+    .deviceForm input,
+    .deviceForm textarea {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .deviceForm button {
+        height: 34px;
+    }
+}

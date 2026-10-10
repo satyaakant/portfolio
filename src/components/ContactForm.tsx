@@ -1,139 +1,58 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import styles from "./ContactForm.module.css";
-import { ScrollReveal } from "./ScrollReveal";
-import Swal from "sweetalert2";
+import { useState } from "react";
+import styles from "./Pages.module.css";
 
-export default function ContactForm() {
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [formData, setFormData] = useState({
-        fullname: "",
-        email: "",
-        message: ""
-    });
-    const [isFormValid, setIsFormValid] = useState(false);
+type Status = "idle" | "sending" | "sent" | "error";
 
-    useEffect(() => {
-        const isValid = formData.fullname.trim() !== "" &&
-            formData.email.trim() !== "" &&
-            formData.message.trim() !== "";
-        setIsFormValid(isValid);
-    }, [formData]);
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
+/** `className` swaps the page styling for a custom skin (e.g. the compact form on the folded phone). */
+export default function ContactForm({ className }: { className?: string }) {
+    const [status, setStatus] = useState<Status>("idle");
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const form = event.currentTarget;
-        setIsSubmitting(true);
+        setStatus("sending");
 
         const data = new FormData(form);
         data.append("access_key", "3b31ec38-086a-466b-a36b-05d4e94419b2");
 
         try {
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                body: data
-            });
-
+            const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: data });
             const result = await response.json();
-
             if (result.success) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Message Sent",
-                    text: "Thank you! Your message has been successfully sent.",
-                    confirmButtonText: "OK"
-                });
-                setFormData({ fullname: "", email: "", message: "" });
+                setStatus("sent");
                 form.reset();
             } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: "Something went wrong. Please try again.",
-                    confirmButtonText: "OK"
-                });
+                setStatus("error");
             }
         } catch (error) {
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Network error. Please check your connection and try again.",
-                confirmButtonText: "OK"
-            });
             console.error(error);
-        } finally {
-            setIsSubmitting(false);
+            setStatus("error");
         }
     };
 
     return (
-        <section className={styles.section}>
-            <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <ScrollReveal width="100%">
-                    <h2 className={`h2 text-gradient ${styles.title}`}>Get In Touch</h2>
-                </ScrollReveal>
-
-                <ScrollReveal delay={0.2}>
-                    <form onSubmit={onSubmit} className={styles.form}>
-                        <div className={styles.inputGroup}>
-                            <input
-                                type="text"
-                                name="fullname"
-                                placeholder="Full name"
-                                required
-                                className={styles.input}
-                                value={formData.fullname}
-                                onChange={handleInputChange}
-                            />
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email address"
-                                required
-                                className={styles.input}
-                                value={formData.email}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                        <textarea
-                            name="message"
-                            placeholder="Your Message"
-                            required
-                            className={styles.textarea}
-                            value={formData.message}
-                            onChange={handleInputChange}
-                        ></textarea>
-
-                        <button
-                            type="submit"
-                            disabled={!isFormValid || isSubmitting}
-                            className={styles.button}
-                        >
-                            {isSubmitting ? 'Sending...' : 'Send Message'}
-                        </button>
-                    </form>
-                </ScrollReveal>
-
-                <ScrollReveal delay={0.3}>
-                    <div className={styles.socials}>
-                        <a href="mailto:satyakantmishra50@gmail.com" className={styles.socialLink}>
-                            <span>📧</span> Email
-                        </a>
-                        <a href="https://www.linkedin.com/in/satyakant-mishra-958847203/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                            <span>💼</span> LinkedIn
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                            <span>📸</span> Instagram
-                        </a>
-                    </div>
-                </ScrollReveal>
-            </div>
-        </section >
+        <form className={className ?? styles.form} onSubmit={onSubmit}>
+            <label>
+                <span className="mono">Name</span>
+                <input name="fullname" required autoComplete="name" placeholder="Your name" />
+            </label>
+            <label>
+                <span className="mono">Email</span>
+                <input name="email" type="email" required autoComplete="email" placeholder="you@email.com" />
+            </label>
+            <label>
+                <span className="mono">Message</span>
+                <textarea name="message" rows={6} required placeholder="Tell me about your project" />
+            </label>
+            <button type="submit" className="btn btn-dark" disabled={status === "sending"}>
+                {status === "sending" ? "Sending…" : "Send message ↗"}
+            </button>
+            <p className={className ? undefined : styles.formStatus} role="status">
+                {status === "sent" && "Thanks — your message is on its way."}
+                {status === "error" && "Something went wrong. Try again or email me directly."}
+            </p>
+        </form>
     );
 }

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#0b3d2e" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" fill="#dff1e7"/>
+  <circle cx="1100" cy="80" r="240" fill="#9fd9b9" opacity="0.5"/>
+
+  <g filter="url(#sh)">
+    <rect x="60" y="70" width="1080" height="760" rx="28" fill="#ffffff"/>
+  </g>
+  <!-- sidebar -->
+  <path d="M60 98 a28 28 0 0 1 28 -28 h152 v760 h-152 a28 28 0 0 1 -28 -28 z" fill="#0f2a20"/>
+  <text x="90" y="130" font-size="22" font-weight="700" fill="#fff">Lead CRM</text>
+  <g font-size="17" fill="#9fc9b4">
+    <rect x="80" y="170" width="140" height="40" rx="10" fill="#1f4d3b"/>
+    <text x="96" y="196" fill="#fff">Pipeline</text>
+    <text x="96" y="250">Leads</text>
+    <text x="96" y="296">Ask AI</text>
+    <text x="96" y="342">Follow-ups</text>
+    <text x="96" y="388">Reports</text>
+  </g>
+
+  <!-- header -->
+  <text x="280" y="135" font-size="28" font-weight="700" fill="#0f2a20">Pipeline</text>
+  <rect x="780" y="105" width="320" height="46" rx="23" fill="#f1f6f3"/>
+  <text x="806" y="135" font-size="16" fill="#5d7a6c">✦ "Who's hot this week?"</text>
+
+  <!-- columns -->
+  <g font-size="15" fill="#5d7a6c" letter-spacing="2">
+    <text x="280" y="200">NEW · 24</text>
+    <text x="560" y="200">QUALIFIED · 11</text>
+    <text x="840" y="200">CLOSING · 5</text>
+  </g>
+
+  <!-- card template: name, company, score -->
+  <g font-size="18" fill="#0f2a20">
+    <!-- col 1 -->
+    <rect x="280" y="220" width="250" height="110" rx="16" fill="#f6faf8" stroke="#e1ece6" stroke-width="2"/>
+    <text x="300" y="256" font-weight="600">Aarav Mehta</text>
+    <text x="300" y="282" font-size="15" fill="#5d7a6c">Northwind Logistics</text>
+    <rect x="300" y="296" width="96" height="24" rx="12" fill="#ffe7c2"/><text x="312" y="313" font-size="13" fill="#8a5a00">Score 62</text>
+
+    <rect x="280" y="345" width="250" height="110" rx="16" fill="#f6faf8" stroke="#e1ece6" stroke-width="2"/>
+    <text x="300" y="381" font-weight="600">Priya Nair</text>
+    <text x="300" y="407" font-size="15" fill="#5d7a6c">Bluepeak Retail</text>
+    <rect x="300" y="421" width="96" height="24" rx="12" fill="#ffe7c2"/><text x="312" y="438" font-size="13" fill="#8a5a00">Score 55</text>
+
+    <rect x="280" y="470" width="250" height="110" rx="16" fill="#f6faf8" stroke="#e1ece6" stroke-width="2"/>
+    <text x="300" y="506" font-weight="600">Kabir Shah</text>
+    <text x="300" y="532" font-size="15" fill="#5d7a6c">Orbit Studio</text>
+    <rect x="300" y="546" width="96" height="24" rx="12" fill="#ffd9d6"/><text x="312" y="563" font-size="13" fill="#a3261b">Score 31</text>
+
+    <!-- col 2 -->
+    <rect x="560" y="220" width="250" height="110" rx="16" fill="#f6faf8" stroke="#e1ece6" stroke-width="2"/>
+    <text x="580" y="256" font-weight="600">Riya Kapoor</text>
+    <text x="580" y="282" font-size="15" fill="#5d7a6c">Helix Health</text>
+    <rect x="580" y="296" width="96" height="24" rx="12" fill="#c9f0d8"/><text x="592" y="313" font-size="13" fill="#11643a">Score 84</text>
+
+    <rect x="560" y="345" width="250" height="110" rx="16" fill="#f6faf8" stroke="#e1ece6" stroke-width="2"/>
+    <text x="580" y="381" font-weight="600">Dev Arora</text>
+    <text x="580" y="407" font-size="15" fill="#5d7a6c">Lumen Edu</text>
+    <rect x="580" y="421" width="96" height="24" rx="12" fill="#c9f0d8"/><text x="592" y="438" font-size="13" fill="#11643a">Score 77</text>
+
+    <!-- col 3 -->
+    <rect x="840" y="220" width="250" height="110" rx="16" fill="#0f2a20"/>
+    <text x="860" y="256" font-weight="600" fill="#fff">Meera Iyer</text>
+    <text x="860" y="282" font-size="15" fill="#9fc9b4">Crestline Infra</text>
+    <rect x="860" y="296" width="96" height="24" rx="12" fill="#34c759"/><text x="872" y="313" font-size="13" fill="#04210f">Score 93</text>
+  </g>
+
+  <!-- AI insight panel -->
+  <rect x="560" y="490" width="530" height="300" rx="20" fill="#0f2a20"/>
+  <text x="590" y="532" font-size="15" letter-spacing="2" fill="#9fc9b4">✦ AI INSIGHT · FROM CALL NOTES &amp; EMAILS</text>
+  <g font-size="19" fill="#ffffff">
+    <text x="590" y="576">Meera asked for a revised quote twice and</text>
+    <text x="590" y="606">mentioned a Q4 budget. Likely to close.</text>
+  </g>
+  <rect x="590" y="630" width="470" height="1" fill="#2c5a47"/>
+  <text x="590" y="666" font-size="15" letter-spacing="2" fill="#9fc9b4">SUGGESTED NEXT STEP</text>
+  <text x="590" y="700" font-size="19" fill="#fff">Send the revised quote with the case study.</text>
+  <rect x="590" y="724" width="190" height="44" rx="22" fill="#34c759"/>
+  <text x="616" y="752" font-size="16" font-weight="600" fill="#04210f">Draft follow-up</text>
+  <text x="800" y="752" font-size="14" fill="#9fc9b4">Sources: 3 emails · 1 call</text>
+
+  <!-- left bottom: chat with data -->
+  <rect x="280" y="600" width="250" height="190" rx="16" fill="#f1f6f3"/>
+  <text x="300" y="636" font-size="15" letter-spacing="2" fill="#5d7a6c">ASK YOUR LEADS</text>
+  <rect x="300" y="652" width="210" height="44" rx="14" fill="#ffffff"/>
+  <text x="314" y="680" font-size="15" fill="#0f2a20">Leads from healthcare?</text>
+  <rect x="300" y="708" width="210" height="64" rx="14" fill="#0f2a20"/>
+  <text x="314" y="734" font-size="15" fill="#fff">2 found: Riya Kapoor,</text>
+  <text x="314" y="756" font-size="15" fill="#fff">Helix Health (84)…</text>
+</svg>

@@ -1,0 +1,98 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #efe7dd;
+    color: #111b21;
+    font-size: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: #1f5c4b;
+    color: #fff;
+}
+
+.head div {
+    display: grid;
+    line-height: 1.25;
+}
+
+.head strong {
+    font-weight: 600;
+}
+
+.head span:not(.avatar) {
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 16px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 12px 18px;
+    background-color: #efe7dd;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+}
+
+.bubble {
+    position: relative;
+    max-width: 80%;
+    padding: 7px 10px 6px;
+    border-radius: 10px;
+    line-height: 1.35;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.them {
+    align-self: flex-start;
+    background: #fff;
+    border-top-left-radius: 2px;
+}
+
+.me {
+    align-self: flex-end;
+    background: #d6f5c6;
+    border-top-right-radius: 2px;
+}
+
+.meta {
+    float: right;
+    margin: 6px 0 -3px 10px;
+    font-size: 10px;
+    color: #667781;
+}
+
+.ticks {
+    margin-left: 3px;
+    color: #34a1e8;
+    letter-spacing: -2px;
+}
+
+.system {
+    align-self: center;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #fdf3c4;
+    color: #54656f;
+    font-size: 12px;
+    text-align: center;
+}
