@@ -305,15 +305,18 @@
     font-weight: 500;
 }
 
-.noteText .mono,
 .noteText strong {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+/* Kept as its own rule: the CSS minifier drops `:global()` selectors merged into a list */
 .noteText :global(.mono) {
     font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .lockBar {
@@ -334,6 +337,7 @@
 }
 
 .hint {
+    white-space: nowrap;
     padding: 7px 14px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.85);
@@ -377,6 +381,40 @@
 
     .note:nth-child(n + 2) {
         display: none;
+    }
+}
+
+/* Short outer screen (phones in landscape): keep only the essentials */
+@container face (max-height: 380px) {
+    .lockRole {
+        font-size: 11px;
+    }
+
+    .note:nth-child(n + 2) {
+        display: none;
+    }
+
+    .hint {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .round {
+        width: 34px;
+        height: 34px;
+    }
+
+    .contactTop p,
+    .contactMail {
+        display: none;
+    }
+
+    .deviceForm label :global(.mono) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
     }
 }
 

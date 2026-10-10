@@ -153,6 +153,15 @@
     object-position: top;
 }
 
+/* Alternate sides: 01, 03, 05… put the screenshot on the right */
+.imageRight {
+    grid-template-columns: 1fr 1.15fr;
+}
+
+.imageRight .projectImg {
+    order: 2;
+}
+
 .project:hover .frame {
     transform: translateY(-4px);
 }
@@ -371,9 +380,14 @@ a.exploreCard:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .project {
+    .project,
+    .imageRight {
         grid-template-columns: 1fr;
         min-height: 0;
+    }
+
+    .imageRight .projectImg {
+        order: 0;
     }
 
     .nda {

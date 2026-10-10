@@ -61,7 +61,7 @@ export default function ScreenContent({ onNavigate }: { onNavigate: (id: string)
                     <article
                         key={p.title}
                         data-glow={p.color}
-                        className={styles.project}
+                        className={`${styles.project} ${i % 2 === 0 ? styles.imageRight : ""}`}
                         style={{ background: p.color, color: p.ink === "dark" ? "#0b0b0b" : "#fff" }}
                     >
                         <div className={styles.projectImg}>

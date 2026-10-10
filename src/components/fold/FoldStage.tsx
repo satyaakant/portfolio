@@ -24,7 +24,8 @@ const NAV = [
 function measure(vw: number, vh: number): Dims {
     // Wide screens fold like a book (vertical hinge), tall screens fold top-over-bottom.
     if (vw >= 820 && vw / vh > 0.9) {
-        let H = Math.min(vh - 170, 760);
+        // Short screens (phones in landscape) get less breathing room around the device.
+        let H = Math.min(vh - (vh < 600 ? 90 : 170), 760);
         let W = Math.min(H * 1.46, vw - 96);
         H = Math.min(H, W / 1.3);
         W = Math.min(W, H * 1.46);
@@ -49,12 +50,19 @@ export default function FoldStage() {
 
     useEffect(() => {
         let lastW = 0;
+        let lastH = 0;
         const onResize = () => {
-            // Ignore height-only resizes while typing (mobile keyboard) so the device doesn't re-fold mid-message.
-            const typing = document.activeElement?.matches("input, textarea");
-            if (typing && window.innerWidth === lastW) return;
-            lastW = window.innerWidth;
-            setDims(measure(window.innerWidth, window.innerHeight));
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            if (w === lastW) {
+                // Height-only resizes on phones come from the address bar sliding in/out while scrolling,
+                // or the keyboard opening — re-measuring then would make the page jump.
+                const typing = document.activeElement?.matches("input, textarea");
+                if (typing || Math.abs(h - lastH) < 160) return;
+            }
+            lastW = w;
+            lastH = h;
+            setDims(measure(w, h));
         };
         onResize();
         window.addEventListener("resize", onResize);
@@ -91,11 +99,12 @@ export default function FoldStage() {
     const angle = useTransform(u, (v) => (horizontal ? 180 * (1 - v) : -180 * (1 - v)));
     const shift = useTransform(u, (v) => -(1 - v) * (horizontal ? W : H) / 4);
     const clip = useTransform(u, (v) => {
-        if (v >= 0.5) return "inset(0 0 0 0)";
+        // Keep the flap's half of the screen hidden until the flap has landed, then the screen "turns on".
+        if (v >= 0.9) return "inset(0 0 0 0)";
         const r = (dims?.R ?? BEZEL) - BEZEL;
         return horizontal ? `inset(0 0 0 50% round ${r}px)` : `inset(50% 0 0 0 round ${r}px)`;
     });
-    const overlay = useTransform(u, (v) => clamp01(1 - (v - 0.55) / 0.4));
+    const overlay = useTransform(u, (v) => clamp01(1 - (v - 0.9) / 0.1));
     const flapEvents = useTransform(u, (v) => (v > 0.97 ? "none" : "auto"));
     const wordsOpacity = useTransform(u, (v) => clamp01(1 - v / 0.45));
     const wordsSpread = useTransform(u, (v) => v * 160);
