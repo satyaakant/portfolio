@@ -10,7 +10,7 @@ export default function ScreenContent({ onNavigate }: { onNavigate: (id: string)
     return (
         <div className={styles.root}>
             {/* Hero */}
-            <section data-section="home" data-glow="#9db4ff" className={styles.hero}>
+            <section data-section="home" className={styles.hero}>
                 <div className={styles.heroText}>
                     <p className="mono">
                         {profile.role} — {profile.location}
@@ -60,7 +60,7 @@ export default function ScreenContent({ onNavigate }: { onNavigate: (id: string)
                 {projects.map((p, i) => (
                     <article
                         key={p.title}
-                        data-glow={p.color}
+                       
                         className={`${styles.project} ${i % 2 === 0 ? styles.imageRight : ""}`}
                         style={{ background: p.color, color: p.ink === "dark" ? "#0b0b0b" : "#fff" }}
                     >
@@ -93,7 +93,7 @@ export default function ScreenContent({ onNavigate }: { onNavigate: (id: string)
                         </div>
                     </article>
                 ))}
-                <div className={styles.nda} data-glow="#3fb67a">
+                <div className={styles.nda}>
                     <div>
                         <h3 className={`display ${styles.ndaTitle}`}>And the rest?</h3>
                         <p className={styles.ndaText}>
@@ -105,7 +105,7 @@ export default function ScreenContent({ onNavigate }: { onNavigate: (id: string)
             </section>
 
             {/* Exploring */}
-            <section data-section="exploring" data-glow={exploring[0]?.color ?? "#f2c230"} className={styles.exploring}>
+            <section data-section="exploring" className={styles.exploring}>
                 <header className={styles.exploreHead}>
                     <h2 className={`display ${styles.sectionTitle}`}>Currently exploring</h2>
                     <p className="mono">New genres I&apos;m digging into</p>
@@ -134,7 +134,7 @@ export default function ScreenContent({ onNavigate }: { onNavigate: (id: string)
             </section>
 
             {/* Services + clients + CTA */}
-            <section data-section="services" data-glow="#9db4ff" className={styles.services}>
+            <section data-section="services" className={styles.services}>
                 <p className="mono">What I do</p>
                 <ol className={styles.serviceList}>
                     {services.map((s, i) => (

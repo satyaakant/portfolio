@@ -12,8 +12,6 @@ type Mode = "h" | "v";
 type Dims = { vw: number; vh: number; mode: Mode; W: number; H: number; R: number };
 
 const BEZEL = 12;
-/** Glow colour when nothing in particular is on screen (lock screen, contact form, hero). */
-const DEFAULT_GLOW = "#9db4ff";
 const NAV = [
     { id: "home", label: "Home" },
     { id: "work", label: "Work" },
@@ -44,7 +42,6 @@ export default function FoldStage() {
     const [contentH, setContentH] = useState(0);
     const [face, setFace] = useState<"lock" | "contact">("lock");
     const [active, setActive] = useState("home");
-    const [glow, setGlow] = useState(DEFAULT_GLOW);
     const contentRef = useRef<HTMLDivElement>(null);
     const time = useClock();
 
@@ -130,15 +127,6 @@ export default function FoldStage() {
             if (s.offsetTop <= pos) current = s.dataset.section!;
         });
         setActive(current);
-
-        // The glow behind the device picks up the colour of whatever is on screen.
-        let color = DEFAULT_GLOW;
-        if (y > A * 0.5 && y < A + S) {
-            content.querySelectorAll<HTMLElement>("[data-glow]").forEach((s) => {
-                if (s.offsetTop <= pos) color = s.dataset.glow!;
-            });
-        }
-        setGlow(color);
     });
 
     const goTo = useCallback(
@@ -233,7 +221,6 @@ export default function FoldStage() {
                                 marginTop: (-H * 0.96) / 2,
                                 scaleX: glowScaleX,
                                 scaleY: glowScaleY,
-                                backgroundColor: glow,
                             }}
                         />
 

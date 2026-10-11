@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sofia_Sans_Extra_Condensed } from "next/font/google";
+import SeasonSky from "@/components/SeasonSky";
 import SiteHeader from "@/components/SiteHeader";
+import ThemeScript from "@/components/ThemeScript";
 import { profile } from "@/data/portfolio";
 import "./globals.css";
 
@@ -34,8 +36,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sofia.variable} ${geist.variable} ${geistMono.variable}`}>
+    // data-theme is set by ThemeScript before hydration, hence suppressHydrationWarning.
+    <html lang="en" className={`${sofia.variable} ${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body>
+        <SeasonSky />
         <SiteHeader />
         {children}
       </body>

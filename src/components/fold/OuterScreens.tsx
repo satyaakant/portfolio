@@ -2,6 +2,7 @@
 
 import ContactForm from "@/components/ContactForm";
 import Portrait from "@/components/Portrait";
+import { useSiteTheme } from "@/components/useSiteTheme";
 import { profile, updates } from "@/data/portfolio";
 import { LinkedInIcon, MailIcon } from "./Icons";
 import styles from "./Fold.module.css";
@@ -9,6 +10,12 @@ import styles from "./Fold.module.css";
 const linkedIn = profile.socials.find((s) => s.label === "LinkedIn");
 
 export function LockScreen({ time }: { time: string }) {
+    const theme = useSiteTheme();
+    // In winter / monsoon the seasonal greeting takes the top notification slot.
+    const notes: { title: string; meta: string; time: string; color: string; image?: string; emoji?: string }[] = theme.greeting
+        ? [{ title: theme.greeting, meta: theme.note ?? "", time: "today", color: theme.color ?? "#000", emoji: theme.emoji }, ...updates].slice(0, 2)
+        : updates;
+
     return (
         <div className={styles.lock}>
             <Portrait className={styles.lockPhoto} />
@@ -20,10 +27,10 @@ export function LockScreen({ time }: { time: string }) {
             </div>
 
             <ul className={styles.notes}>
-                {updates.map((n) => (
+                {notes.map((n) => (
                     <li key={n.title} className={styles.note}>
                         <span className={styles.noteIcon} style={{ background: n.color }}>
-                            {n.image ? <img src={n.image} alt="" /> : null}
+                            {n.image ? <img src={n.image} alt="" /> : n.emoji}
                         </span>
                         <span className={styles.noteText}>
                             <strong>{n.title}</strong>

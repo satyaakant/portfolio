@@ -12,6 +12,34 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --gutter: clamp(16px, 4vw, 40px);
+
+  /* Seasonal theme — background tint + the glow around the phone (see src/data/themes.ts) */
+  --tint: transparent;
+  --glow-a: #7cc8ff;
+  --glow-b: #4fb3ff;
+  --glow-c: #a8dcff;
+  --glow-d: #38a9f5;
+  --glow-e: #8fd3ff;
+}
+
+:root[data-theme="winter"] {
+  --paper: #eef3f8;
+  --tint: rgba(162, 210, 255, 0.18);
+  --glow-a: #a2d2ff;
+  --glow-b: #bde0fe;
+  --glow-c: #e0f2ff;
+  --glow-d: #8ec5ff;
+  --glow-e: #cfe8ff;
+}
+
+:root[data-theme="monsoon"] {
+  --paper: #edf1f2;
+  --tint: rgba(61, 126, 166, 0.1);
+  --glow-a: #5fa8d3;
+  --glow-b: #62b6cb;
+  --glow-c: #1b4965;
+  --glow-d: #8ecae6;
+  --glow-e: #3d7ea6;
 }
 
 * {
@@ -23,7 +51,7 @@
 html,
 body {
   overflow-x: clip;
-  background: var(--paper);
+  background: radial-gradient(120% 80% at 50% 0%, var(--tint), transparent 70%) fixed, var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -41,6 +69,11 @@ button {
   background: none;
   font: inherit;
   color: inherit;
+}
+
+main {
+  position: relative;
+  z-index: 1;
 }
 
 img {

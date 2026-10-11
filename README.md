@@ -44,3 +44,16 @@ All content lives in [`src/data/portfolio.ts`](src/data/portfolio.ts):
 - **New genre** → just use a new `genre` string. Archive filter chips, lock-screen notifications and stats update automatically.
 
 Put images in `public/assets/images/`. For light panel colours (yellow, pink…) set `ink: "dark"`.
+
+## Seasonal themes
+
+The background, the glow around the phone and a light particle layer change with the visitor's date
+(see [`src/data/themes.ts`](src/data/themes.ts)):
+
+| When | Theme |
+|---|---|
+| Dec – 10 Feb | Winter (snow) |
+| Jul – 15 Sep | Monsoon (rain) |
+| Otherwise | Default (sky blue) |
+
+Preview with `?theme=winter`, `?theme=monsoon` or `?theme=default`.
